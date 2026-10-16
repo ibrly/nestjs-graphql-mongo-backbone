@@ -2,6 +2,8 @@ version: "3.8"
 services:
   backend:
     build: ./
+    # dev: run the mounted source in watch mode instead of the built image's dist/main
+    command: npm run start:dev
     ports:
       - '3000:3000'
     volumes:
