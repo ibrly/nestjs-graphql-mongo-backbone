@@ -10,7 +10,7 @@ A NestJS starter intended to grow into a GraphQL + MongoDB backbone. It is curre
 - [ ] JWT authentication guard for resolvers
 - [ ] Config validation for environment variables
 - [ ] Unit and e2e tests for resolvers
-- [ ] GitHub Actions CI
+- [x] GitHub Actions CI (lint, unit and e2e tests, build)
 
 ## Getting started
 
