@@ -26,7 +26,7 @@ npm install
 npm run start:dev
 ```
 
-The server listens on `http://localhost:3000`.
+The server listens on `http://localhost:3000`. Set `PORT` (see `app.env.example`) to change it. The database and auth variables will be added to the example when the MongoDB and JWT roadmap items land.
 
 ## Scripts
 
