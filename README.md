@@ -8,7 +8,7 @@ A NestJS starter intended to grow into a GraphQL + MongoDB backbone. It is curre
 - [ ] MongoDB via `@nestjs/mongoose`
 - [ ] Example resource with queries, mutations and resolvers
 - [ ] JWT authentication guard for resolvers
-- [ ] Config validation for environment variables
+- [x] Config validation for environment variables (`src/config/env.validation.ts`; add the MongoDB and JWT variables there as they land)
 - [ ] Unit and e2e tests for resolvers
 - [x] GitHub Actions CI (lint, unit and e2e tests, build)
 
@@ -26,7 +26,16 @@ npm install
 npm run start:dev
 ```
 
-The server listens on `http://localhost:3000`. Set `PORT` (see `app.env.example`) to change it. The database and auth variables will be added to the example when the MongoDB and JWT roadmap items land.
+The server listens on `http://localhost:3000`. Set `PORT` (see `app.env.example`) to change it; an invalid value stops startup with an `Invalid environment` error. The database and auth variables will be added to the example when the MongoDB and JWT roadmap items land.
+
+## Production image
+
+`docker compose` runs the build stage in watch mode for development. The final stage of the `Dockerfile` holds only production dependencies and `dist`, and runs as the `node` user:
+
+```bash
+docker build -t nestjs-graphql-mongo-backbone .
+docker run --rm -p 3000:3000 --env-file app.env nestjs-graphql-mongo-backbone
+```
 
 ## Scripts
 
