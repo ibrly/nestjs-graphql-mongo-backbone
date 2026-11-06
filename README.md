@@ -37,6 +37,8 @@ docker build -t nestjs-graphql-mongo-backbone .
 docker run --rm -p 3000:3000 --env-file app.env nestjs-graphql-mongo-backbone
 ```
 
+`GET /health` answers `{"status":"ok"}` once the app is up, and the image's `HEALTHCHECK` calls it every 30 seconds, so `docker ps` shows the container as `healthy` or `unhealthy`.
+
 ## Scripts
 
 ```bash
