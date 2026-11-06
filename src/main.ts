@@ -7,4 +7,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(port);
 }
-bootstrap();
+// Print config errors as a plain message instead of an unhandled-rejection stack trace.
+bootstrap().catch((error: Error) => {
+  console.error(error.message);
+  process.exit(1);
+});
